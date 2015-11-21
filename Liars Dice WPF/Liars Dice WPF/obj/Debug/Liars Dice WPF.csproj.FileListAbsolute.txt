@@ -1,0 +1,14 @@
+C:\Depot\Liars Dice WPF\Liars Dice WPF\bin\Debug\Liars Dice WPF.exe.config
+C:\Depot\Liars Dice WPF\Liars Dice WPF\bin\Debug\Liars Dice WPF.exe
+C:\Depot\Liars Dice WPF\Liars Dice WPF\bin\Debug\Liars Dice WPF.pdb
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.csprojResolveAssemblyReference.cache
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\MainWindow.g.cs
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\App.g.cs
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF_MarkupCompile.cache
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF_MarkupCompile.lref
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\MainWindow.baml
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.g.resources
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars_Dice_WPF.Properties.Resources.resources
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.csproj.GenerateResource.Cache
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.exe
+C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.pdb
