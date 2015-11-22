@@ -12,3 +12,37 @@ C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars_Dice_WPF.Properties.Resou
 C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.csproj.GenerateResource.Cache
 C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.exe
 C:\Depot\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.pdb
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Liars Dice WPF.exe.config
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.exe
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.pdb
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Liars Dice WPF.exe
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Liars Dice WPF.pdb
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.csprojResolveAssemblyReference.cache
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\MainWindow.g.cs
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\App.g.cs
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF_MarkupCompile.cache
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF_MarkupCompile.lref
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\MainWindow.baml
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.g.resources
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars_Dice_WPF.Properties.Resources.resources
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\obj\Debug\Liars Dice WPF.csproj.GenerateResource.Cache
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\LDLib.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Prism.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Prism.Wpf.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\System.Windows.Interactivity.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\LDLib.pdb
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Prism.xml
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\Prism.Wpf.xml
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\de\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\en\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\es\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\it\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+D:\Depot\LiarsDice\LiarsDice\Liars Dice WPF\Liars Dice WPF\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll

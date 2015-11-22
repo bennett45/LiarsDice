@@ -8,9 +8,43 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <TextBlock Name="txtTitle" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Liar's Dice" FontSize="24"/>
-        <Button Name="btnRoll" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Roll" Margin="0,0,48,0" FontSize="21.333"/>
-        <Button Name="btnStart" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="21.333" />
-        <Grid Name="grdDice" VerticalAlignment="Bottom" Margin="30,0,26,30" Grid.ColumnSpan="5">
+        <Grid Name="grdRoll" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="btnRoll" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Roll" FontSize="21.333" Command="{Binding Roll}"/>
+            <Button Name="btnOk" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Ok" FontSize="21.333" Grid.Row="1" Margin="0,10,0,0" Command="{Binding RollOk}"/>
+        </Grid>
+        <CheckBox Name="chkShowDice" Content="Show Dice" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,100" IsChecked="{Binding HideDice}"/>
+        <CheckBox Name="chkShowCompDice" Content="Show Comp Roll" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,125" IsChecked="{Binding TellCompDice}"/>
+        <Button Name="btnStart" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="21.333" Command="{Binding StartGame}"/>
+        <Grid Name="grdAddPlayer" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="btnAddHuman" Content="Add Human" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding AddHuman}"/>
+            <Button Name="btnAddComputer" Content="Add Computer" Grid.Row="1" Command="{Binding AddComputer}" Margin="0,10,0,0"/>
+        </Grid>
+        <Grid Name="grdDecision" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnCall" Content="Call" Grid.Column="3" Margin="10,0,0,0" Command="{Binding Call}"/>
+            <Button Name="btnGuess" Content="Guess" Grid.Row="1" Grid.Column="3" Margin="10,10,0,0" Command="{Binding Guess}"/>
+            <TextBox Name="boxDiceNumber" Grid.Row="1" FontSize="21.333" Padding="20,0" Margin="10,0" MaxLength="1" PreviewTextInput="NumberPreviewTextInput" Text="{Binding DiceValue}" Grid.Column="1"/>
+            <TextBox Name="boxAmount" Grid.Row="1" FontSize="21.333" Margin="10,0" MaxLength="2" PreviewTextInput="NumberPreviewTextInput" Text="{Binding Amount}"/>
+            <TextBlock Name="txtDiceNumber" Text="Dice Number" Padding="10,0" Grid.Column="1"/>
+            <TextBlock Name="txtAmount" Text="Amount" Padding="5,0"/>
+        </Grid>
+        <Grid Name="grdDice" VerticalAlignment="Bottom" Margin="30,0,26,30" Grid.ColumnSpan="5" Visibility="{Binding DiceVisibility}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -18,12 +52,30 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox Name="boxDice1" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" />
-            <TextBox Name="boxDice2" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" Grid.Column="1" />
-            <TextBox Name="boxDice3" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" Grid.Column="2" />
-            <TextBox Name="boxDice4" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" Grid.Column="3" />
-            <TextBox Name="boxDice5" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" Grid.Column="4" />
+            <TextBox Name="boxDice1" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" MaxLength="1" PreviewTextInput="NumberPreviewTextInput" Text="{Binding Dice1}"/>
+            <TextBox Name="boxDice2" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" MaxLength="1" Grid.Column="1" PreviewTextInput="NumberPreviewTextInput" Text="{Binding Dice2}"/>
+            <TextBox Name="boxDice3" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" MaxLength="1" Grid.Column="2" PreviewTextInput="NumberPreviewTextInput" Text="{Binding Dice3}"/>
+            <TextBox Name="boxDice4" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" MaxLength="1" Grid.Column="3" PreviewTextInput="NumberPreviewTextInput" Text="{Binding Dice4}"/>
+            <TextBox Name="boxDice5" VerticalAlignment="Bottom" FontSize="30.667" MaxLines="1" Margin="15,0" MaxLength="1" Grid.Column="4" PreviewTextInput="NumberPreviewTextInput" Text="{Binding Dice5}"/>
         </Grid>
-        <TextBlock Name="txtStatus" VerticalAlignment="Center" Margin="150,0,148,0" />
+        <ScrollViewer Name="scrStatus" VerticalAlignment="Top" Margin="150,75,150,0" Height="159">
+            <TextBlock Name="txtStatus" VerticalAlignment="Top" Margin="0" TextWrapping="Wrap" Focusable="True" Text="{Binding GameStatus}"/>
+        </ScrollViewer>
+        <Grid Name="grdLastMove" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,40,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Last Move:"/>
+            <TextBlock Name="txtLastMove" Grid.Column="1" Text="{Binding LastMove}" Margin="10,0,0,0"/>
+        </Grid>
+        <Grid Name="grdCurrentTurn" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Current Turn:"/>
+            <TextBlock Name="txtCurrentTurn" Grid.Row="1" Text="{Binding CurrentTurn}"/>
+        </Grid>
     </Grid>
 </Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Liars_Dice_WPF
 {
@@ -23,6 +24,13 @@ namespace Liars_Dice_WPF
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowVM();
+        }
+
+        private void NumberPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

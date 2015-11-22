@@ -1,0 +1,6 @@
+[submodule "bennett45"]
+	path = bennett45
+	url = https://bennett45@bitbucket.org/bennett45/ldlib.git
+[submodule "LDLib"]
+	path = LDLib
+	url = https://bennett45@bitbucket.org/bennett45/ldlib.git
