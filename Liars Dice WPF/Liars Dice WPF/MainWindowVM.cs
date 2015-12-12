@@ -86,7 +86,7 @@ namespace Liars_Dice_WPF
             //    return GameState.Instance.ValidMove(new PlayerMove() { Call = true });
             });
 
-            guess = new DelegateCommand(() =>
+            guess = new DelegateCommand(async () =>
             {
                 var move = new PlayerMove() { GuessAmount = amount, DiceNumber = diceValue };
                 status.Insert(0, string.Format("{0} guesses {1}.\n", GameState.Instance.CurrentTurn, move));
@@ -96,7 +96,7 @@ namespace Liars_Dice_WPF
                 dice = new List<int>();
                 NotifyDiceChange();
                 NotifyPropertyChanged("LastMove");
-                TurnHandler();
+                await TurnHandler();
             //},
             //() =>
             //{
@@ -140,12 +140,12 @@ namespace Liars_Dice_WPF
 
         public string LastMove
         {
-            get { return GameState.Instance.LastMove.ToString(); }
+            get { return GameState.Instance.LastMove == null ? "" : GameState.Instance.LastMove.ToString(); }
         }
         
         public string CurrentTurn
         {
-            get { return GameState.Instance.CurrentTurn.ToString(); }
+            get { return GameState.Instance.CurrentTurn == null ? "" : GameState.Instance.CurrentTurn.ToString(); }
 
         }
         public DelegateCommand AddHuman
@@ -308,7 +308,7 @@ namespace Liars_Dice_WPF
             }
         }
 
-        private async void TurnHandler()
+        private async Task TurnHandler()
         {
             NotifyPropertyChanged("CurrentTurn");
             call.RaiseCanExecuteChanged();
@@ -328,18 +328,18 @@ namespace Liars_Dice_WPF
                 status.Insert(0, string.Format("{0} guesses {1}\n", GameState.Instance.CurrentTurn, move));
                 GameState.Instance.EndTurn();
                 NotifyPropertyChanged("GameStatus");
-                TurnHandler();
+                await TurnHandler();
             }
         }
 
-        private void RollHandler()
+        private async void RollHandler()
         {
             var player = GameState.Instance.CurrentTurn;
             if (player.hand.Count == player.currentDice && player.currentDice != 0)
             {
                 status.Insert(0, "Ready to play\n");
                 NotifyPropertyChanged("GameStatus");
-                TurnHandler();
+                await TurnHandler();
                 return;
             }
 
