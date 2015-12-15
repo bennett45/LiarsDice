@@ -14,7 +14,9 @@ namespace Liars_Dice_WPF
     public class MainWindowVM : INotifyPropertyChanged
     {
         private readonly DelegateCommand addHuman;
-        private readonly DelegateCommand addComputer;
+        private readonly DelegateCommand addMonte;
+        private readonly DelegateCommand addMaybeBluff;
+        private readonly DelegateCommand addRandomMonte;
         private readonly DelegateCommand startGame;
         private readonly DelegateCommand call;
         private readonly DelegateCommand guess;
@@ -26,7 +28,7 @@ namespace Liars_Dice_WPF
         private int diceValue;
         private int amount;
         
-        private int startingDice = 5;
+        private const int startingDice = 5;
         private StringBuilder status;
         public bool TellCompDice
         {
@@ -50,9 +52,27 @@ namespace Liars_Dice_WPF
                 startGame.RaiseCanExecuteChanged();
             });
 
-            addComputer = new DelegateCommand(() =>
+            addMonte = new DelegateCommand(() =>
             {
                 var comp = new Monte(startingDice);
+                status.Insert(0, string.Format("{0} was added to the game\n", comp));
+                GameState.Instance.AddPlayer(comp);
+                NotifyPropertyChanged("GameStatus");
+                startGame.RaiseCanExecuteChanged();
+            });
+
+            addMaybeBluff = new DelegateCommand(() =>
+            {
+                var comp = new MaybeBluff(startingDice);
+                status.Insert(0, string.Format("{0} was added to the game\n", comp));
+                GameState.Instance.AddPlayer(comp);
+                NotifyPropertyChanged("GameStatus");
+                startGame.RaiseCanExecuteChanged();
+            });
+
+            addRandomMonte = new DelegateCommand(() =>
+            {
+                var comp = new RandomMonte(startingDice);
                 status.Insert(0, string.Format("{0} was added to the game\n", comp));
                 GameState.Instance.AddPlayer(comp);
                 NotifyPropertyChanged("GameStatus");
@@ -153,9 +173,19 @@ namespace Liars_Dice_WPF
             get { return addHuman; }
         }
 
-        public DelegateCommand AddComputer
+        public DelegateCommand AddMonte
         {
-            get { return addComputer; }
+            get { return addMonte; }
+        }
+
+        public DelegateCommand AddRandomMonte
+        {
+            get { return addRandomMonte; }
+        }
+
+        public DelegateCommand AddMaybeBluff
+        {
+            get { return addMaybeBluff; }
         }
 
         public DelegateCommand StartGame
@@ -335,7 +365,7 @@ namespace Liars_Dice_WPF
         private async void RollHandler()
         {
             var player = GameState.Instance.CurrentTurn;
-            if (player.hand.Count == player.currentDice && player.currentDice != 0)
+            if (GameState.Instance.AllPlayersRolled())
             {
                 status.Insert(0, "Ready to play\n");
                 NotifyPropertyChanged("GameStatus");
