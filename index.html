@@ -4,7 +4,7 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Liarsdice : ">
+    <meta name="description" content="Liarsdice : A Game of Lies and Deceit">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/bennett45/LiarsDice">View on GitHub</a>
 
           <h1 id="project_title">Liarsdice</h1>
-          <h2 id="project_tagline"></h2>
+          <h2 id="project_tagline">A Game of Lies and Deceit</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/bennett45/LiarsDice/zipball/master">Download this project as a .zip file</a>
@@ -35,19 +35,24 @@
 <a id="liars-dice" class="anchor" href="#liars-dice" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liar's Dice</h3>
 
 <h3>
-<a id="teaser" class="anchor" href="#teaser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Teaser</h3>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>Liar's Dice is a classic dice game that deals with guessing and calling your opponents bluffs. This is a playable AI for Liar's Dice.</p>
-
-<h3>
-<a id="what" class="anchor" href="#what" aria-hidden="true"><span class="octicon octicon-link"></span></a>What</h3>
-
-<p>This is a Playable game of Liar's Dice.  It has an AI that uses a monte carlo tree search algorithm to solve what move it should use.  It also has an AI that uses some randomness to bluff.</p>
+<p>Liar's Dice is a classic dice game that deals with guessing and calling your opponents bluffs. This project is to demonstrate an A.I. that can play Liar's Dice Competitively.  </p>
 
 <h3>
-<a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why</h3>
+<a id="problem" class="anchor" href="#problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem</h3>
 
-<p>I have played this game for years and it is a family favorite of mine.  I wanted to see if I could create an AI that would be able to be competitive with humans.</p>
+<p>The basic rules of Liar's Dice are the following. A player takes a guess at how many of a certain dice have been rolled among all the players. The next player has to decide whether to call the players guess or place a new guess.  The round continues until a player calls the previous players guess.  At that point all the dice are counted and whoever is wrong the guesser or the caller loses a dice.  There are a couple problems that Liar's Dice creates when making an A.I. One problem is the randomness in the rolling of the dice. Another problem is the blindness of the player.  Players don't know what the other players have rolled.  The last problem is a player doesn't have to tell the truth.  </p>
+
+<h3>
+<a id="solution" class="anchor" href="#solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution</h3>
+
+<p>The project's main goal is to create a playable A.I. that has the potential to be competitive.  To do this I used a modified Monte Carlo Tree Search. The basis behind the Monte Carlo Tree Search is the AI plays out random games and then makes a decision based on the results of those random playouts.  To create this I take the possible moves the A.I. can make and then play out 100 games of each move and then use the move that results in the most wins.  To modify the A.I. I added a +-5% randomness to each win percentage, and it out performed a normal Monte Carlo player significantly.  ////**<strong><em>Talk about how it fared against humans</em></strong>***////</p>
+
+<h3>
+<a id="the-application" class="anchor" href="#the-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Application</h3>
+
+<p>The application is a very simple WPF app is written in C#.  It uses my Liar's Dice library posted <a href="https://bitbucket.org/bennett45/ldlib">here</a>.  In order to run my tests, I also created a simple console app that uses my Liar's Dice library.  That console application is posted <a href="https://bitbucket.org/bennett45/liars-dice-console">here</a>. To play, you add a human or a computer player and click "Start". Then follow the prompts to know when to roll or take your turn.</p>
       </section>
     </div>
 
