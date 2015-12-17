@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Liars Dice : A Game of Lies and Deceit">
+    <meta name="description" content="An A.I. for Liars Dice : A Game of Lies and Deceit">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Liars Dice</title>
+    <title>An A.I. for Liars Dice</title>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/bennett45/LiarsDice">View on GitHub</a>
 
-          <h1 id="project_title">Liars Dice</h1>
+          <h1 id="project_title">An A.I. for Liars Dice</h1>
           <h2 id="project_tagline">A Game of Lies and Deceit</h2>
 
             <section id="downloads">
@@ -37,7 +37,7 @@
 <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>Liar's Dice is a classic dice game that deals with guessing and calling your opponents bluffs. This project is to demonstrate an A.I. that can play Liar's Dice Competitively.  </p>
+<p>Liar's Dice is a classic dice game that deals with guessing and calling your opponents bluffs. This project is to demonstrate an A.I. that can play Liar's Dice Competitively.  The algorithm demonstrates the use of a modified Monte Carlo Tree Search. The A.I. can play against Humans and other A.I.</p>
 
 <h3>
 <a id="problem" class="anchor" href="#problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem</h3>
@@ -45,21 +45,46 @@
 <p>The basic rules of Liar's Dice are the following. A player takes a guess at how many of a certain dice have been rolled among all the players. The next player has to decide whether to call the players guess or place a new guess.  The round continues until a player calls the previous players guess.  At that point all the dice are counted and whoever is wrong the guesser or the caller loses a dice.  There are a couple problems that Liar's Dice creates when making an A.I. One problem is the randomness in the rolling of the dice. Another problem is the blindness of the player.  Players don't know what the other players have rolled.  The last problem is a player doesn't have to tell the truth.  </p>
 
 <h3>
-<a id="solution" class="anchor" href="#solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution</h3>
+<a id="approach" class="anchor" href="#approach" aria-hidden="true"><span class="octicon octicon-link"></span></a>Approach</h3>
 
-<p>The project's main goal is to create a playable A.I. that has the potential to be competitive.  To do this I used a modified Monte Carlo Tree Search. The basis behind the Monte Carlo Tree Search is the AI plays out random games and then makes a decision based on the results of those random playouts.  To create this I take the possible moves the A.I. can make and then play out 100 games of each move and then use the move that results in the most wins.  To modify the A.I. I added a +-5% randomness to each win percentage, and it out performed a normal Monte Carlo player significantly. In games against humans, it won three of six games it played in.  I need a larger sample size to determine if the A.I. is competitive. <img src="http://i.imgur.com/bQnXXnW.png" alt="A.I. vs Human Results"></p>
+<p>The project's main goal is to create a playable A.I. that has the potential to be competitive.  To do this I created 4 different A.I. each using a different strategy. Then I played the A.I. against each other to determine the best A.I.  The basis for the algorithm is using a Monte Carlo Tree Search. The idea behind the Monte Carlo Tree Search is the AI plays out random games and then makes a decision based on the results of those random playouts.  The different A.I are as follows:</p>
+
+<h3>
+<a id="monte" class="anchor" href="#monte" aria-hidden="true"><span class="octicon octicon-link"></span></a>Monte</h3>
+
+<p>Monte makes decisions entirely using a Monte Carlo Tree Search.  It plays out all possible guess randomly and then chooses the guess with the highest win percentage.  </p>
+
+<h3>
+<a id="flex-master-bluff" class="anchor" href="#flex-master-bluff" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flex Master Bluff</h3>
+
+<p>Flex Master Bluff is an A.I. that bluffs every time it makes a guess.  It takes the amount of the previous guess and adds one to it.  It was supposed to represent a player that bluffed every time it guessed.</p>
+
+<h3>
+<a id="fib-maybes" class="anchor" href="#fib-maybes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fib Maybes</h3>
+
+<p>Fib Maybes uses a threshold to determine whether he is going to bluff or play like Monte. 70% of the time it will play exactly like Monte and 30% of the time it will bluff.</p>
+
+<h3>
+<a id="crazy-monte" class="anchor" href="#crazy-monte" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crazy Monte</h3>
+
+<p>Crazy Monte is a modification to Monte that adds a +-5% randomness to each win percentage.  This was to hopefully get the A.I. to make moves that weren't always the ideal.</p>
+
+<h3>
+<a id="results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h3>
+
+<p>In games against each other Crazy Monte dominated all the others. <img src="http://i.imgur.com/bQnXXnW.png" alt="A.I. vs. A.I. Results"> In games against humans, it won three of six games it played in.  <img src="http://i.imgur.com/DWtYlQJ.png" alt="A.I. vs Human Results"> A larger sample size is needed to determine if the A.I. is competitive, but preliminary results look good.</p>
 
 <h3>
 <a id="the-application" class="anchor" href="#the-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Application</h3>
 
-<p><img src="http://i.imgur.com/HttU5Rb.png" alt="WPF Application">The application is a very simple WPF app is written in C#.  It uses my Liar's Dice library posted <a href="https://bitbucket.org/bennett45/ldlib">here</a>.  In order to run my tests, I also created a simple console app that uses my Liar's Dice library.<img src="http://i.imgur.com/PLhpaf7.png" alt="Console Application">  That console application is posted <a href="https://bitbucket.org/bennett45/liars-dice-console">here</a>. To play, you add a human or a computer player and click "Start". Then follow the prompts to know when to roll or take your turn.</p>
+<p><img src="http://i.imgur.com/HttU5Rb.png" alt="WPF Application"> The application is a very simple WPF app is written in C#.  It uses my Liar's Dice library posted <a href="https://bitbucket.org/bennett45/ldlib">here</a>.  In order to run my tests, I also created a simple console app that uses my Liar's Dice library.<img src="http://i.imgur.com/PLhpaf7.png" alt="Console Application">  That console application is posted <a href="https://bitbucket.org/bennett45/liars-dice-console">here</a>. To play, you add a human or a computer player and click "Start". Then follow the prompts to know when to roll or take your turn.</p>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Liars Dice maintained by <a href="https://github.com/bennett45">bennett45</a></p>
+        <p class="copyright">An A.I. for Liars Dice maintained by <a href="https://github.com/bennett45">bennett45</a></p>
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
