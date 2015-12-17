@@ -1,25 +1,37 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Liars Dice by bennett45</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Liars Dice</h1>
-      <h2 class="project-tagline">A Game of Lies and Deceit</h2>
-      <a href="https://github.com/bennett45/LiarsDice" class="btn">View on GitHub</a>
-      <a href="https://github.com/bennett45/LiarsDice/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/bennett45/LiarsDice/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<html>
 
-    <section class="main-content">
-      <h3>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Liars Dice : A Game of Lies and Deceit">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Liars Dice</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/bennett45/LiarsDice">View on GitHub</a>
+
+          <h1 id="project_title">Liars Dice</h1>
+          <h2 id="project_tagline">A Game of Lies and Deceit</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/bennett45/LiarsDice/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/bennett45/LiarsDice/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
 <a id="liars-dice" class="anchor" href="#liars-dice" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liar's Dice</h3>
 
 <h3>
@@ -30,26 +42,29 @@
 <h3>
 <a id="problem" class="anchor" href="#problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem</h3>
 
-<p>The basic rules of Liar's Dice are the following. A player takes a guess at how many of a certain dice have been rolled among all the players. The next player has to decide whether to call the players guess or place a new guess.  The round continues until a player calls the previous players guess.  At that point all the dice are counted and whoever is wrong the guesser or the caller loses a dice.  There are a couple problems that Liar's Dice creates when making an A.I. On<img src="http://elsoldelaflorida.com/wp-content/uploads/2013/06/google-e1371723033210.jpg" alt="fdasfasfd">e problem is the randomness in the rolling of the dice. Another problem is the blindness of the player.  Players don't know what the other players have rolled.  The last problem is a player doesn't have to tell the truth.  </p>
+<p>The basic rules of Liar's Dice are the following. A player takes a guess at how many of a certain dice have been rolled among all the players. The next player has to decide whether to call the players guess or place a new guess.  The round continues until a player calls the previous players guess.  At that point all the dice are counted and whoever is wrong the guesser or the caller loses a dice.  There are a couple problems that Liar's Dice creates when making an A.I. One problem is the randomness in the rolling of the dice. Another problem is the blindness of the player.  Players don't know what the other players have rolled.  The last problem is a player doesn't have to tell the truth.  </p>
 
 <h3>
 <a id="solution" class="anchor" href="#solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution</h3>
 
-<p>The project's main goal is to create a playable A.I. that has the potential to be competitive.  To do this I used a modified Monte Carlo Tree Search. The basis behind the Monte Carlo Tree Search is the AI plays out random games and then makes a decision based on the results of those random playouts.  To create this I take the possible moves the A.I. can make and then play out 100 games of each move and then use the move that results in the most wins.  To modify the A.I. I added a +-5% randomness to each win percentage, and it out performed a normal Monte Carlo player significantly. In games against humans, it only won one of four games it played in.  I need a larger sample size to determine if the A.I. is competitive.</p>
+<p>The project's main goal is to create a playable A.I. that has the potential to be competitive.  To do this I used a modified Monte Carlo Tree Search. The basis behind the Monte Carlo Tree Search is the AI plays out random games and then makes a decision based on the results of those random playouts.  To create this I take the possible moves the A.I. can make and then play out 100 games of each move and then use the move that results in the most wins.  To modify the A.I. I added a +-5% randomness to each win percentage, and it out performed a normal Monte Carlo player significantly. In games against humans, it won three of six games it played in.  I need a larger sample size to determine if the A.I. is competitive. <img src="http://i.imgur.com/bQnXXnW.png" alt="A.I. vs Human Results"></p>
 
 <h3>
 <a id="the-application" class="anchor" href="#the-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Application</h3>
 
-<p>The application is a very simple WPF app is written in C#.  It uses my Liar's Dice library posted <a href="https://bitbucket.org/bennett45/ldlib">here</a>.  In order to run my tests, I also created a simple console app that uses my Liar's Dice library.  That console application is posted <a href="https://bitbucket.org/bennett45/liars-dice-console">here</a>. To play, you add a human or a computer player and click "Start". Then follow the prompts to know when to roll or take your turn.</p>
+<p><img src="http://i.imgur.com/HttU5Rb.png" alt="WPF Application">The application is a very simple WPF app is written in C#.  It uses my Liar's Dice library posted <a href="https://bitbucket.org/bennett45/ldlib">here</a>.  In order to run my tests, I also created a simple console app that uses my Liar's Dice library.<img src="http://i.imgur.com/PLhpaf7.png" alt="Console Application">  That console application is posted <a href="https://bitbucket.org/bennett45/liars-dice-console">here</a>. To play, you add a human or a computer player and click "Start". Then follow the prompts to know when to roll or take your turn.</p>
+      </section>
+    </div>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/bennett45/LiarsDice">Liars Dice</a> is maintained by <a href="https://github.com/bennett45">bennett45</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Liars Dice maintained by <a href="https://github.com/bennett45">bennett45</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
+    </div>
 
-    </section>
+    
 
-  
   </body>
 </html>
